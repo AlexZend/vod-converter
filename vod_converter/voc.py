@@ -161,10 +161,10 @@ class VOCEgestor(Egestor):
                     'pose': 'Unspecified'
                 })
                 add_sub_node(x_object, 'bndbox', {
-                    'xmin': detection['left'] + 1,
-                    'xmax': detection['right'] + 1,
-                    'ymin': detection['top'] + 1,
-                    'ymax': detection['bottom'] + 1
+                    'xmin': int(detection['left']) + 1,
+                    'xmax': int(detection['right']) + 1,
+                    'ymin': int(detection['top']) + 1,
+                    'ymax': int(detection['bottom']) + 1
                 })
 
             ET.ElementTree(xml_root).write(f"{annotations_path}/{image_id}.xml")
